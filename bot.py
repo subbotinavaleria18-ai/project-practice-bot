@@ -13,8 +13,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 # ======================= КОНФИГУРАЦИЯ =======================
-# ВСТАВЬТЕ СЮДА ВАШ ТОКЕН ПОСЛЕ ТОГО, КАК ПОЛУЧИТЕ ЕГО У @BotFather
-TOKEN = "ВАШ_ТОКЕН_ЗАМЕНИТЕ_НА_НАСТОЯЩИЙ"
+
+TOKEN = 8688176370:AAF7tB9zRxx7M9jxvtYaE1OBLF3BRtIUvUc
 
 # ======================= БАЗА ДАННЫХ =======================
 def init_db():
