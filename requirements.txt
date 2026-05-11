@@ -1,1 +1,1 @@
-python-telegram-bot
+t.me/Study_67bot
