@@ -14,7 +14,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 
 # ======================= КОНФИГУРАЦИЯ =======================
 
-TOKEN = 8688176370:AAF7tB9zRxx7M9jxvtYaE1OBLF3BRtIUvUc
+TOKEN = "8688176370:AAF7tB9zRxx7M9jxvtYaE1OBLF3BRtIUvUc"
 
 # ======================= БАЗА ДАННЫХ =======================
 def init_db():
