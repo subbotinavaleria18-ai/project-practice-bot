@@ -149,18 +149,40 @@ async def photo_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ======================= ЗАПУСК =======================
 def main():
     init_db()
+
     app = Application.builder().token(TOKEN).build()
+
+    # обработчик ошибок
+    app.add_error_handler(error_handler)
+
+    # handlers
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
     app.add_handler(CommandHandler("lab", lab_command))
     app.add_handler(CommandHandler("ask", ask_command))
     app.add_handler(CommandHandler("remind", remind_command))
     app.add_handler(CommandHandler("quiz", quiz_start))
+
     app.add_handler(CallbackQueryHandler(lab_callback, pattern='^lab'))
+
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, quiz_answer))
     app.add_handler(MessageHandler(filters.PHOTO, photo_handler))
+
     print("Бот StudyBot запущен...")
-    app.run_polling()
+
+    # webhook удаляем правильно
+    app.run_polling(drop_pending_updates=True)
+
 
 if __name__ == "__main__":
+    import logging
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
+    async def error_handler(update, context):
+        print(f"❌ Поймана ошибка: {context.error}")
+
     main()
